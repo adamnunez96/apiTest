@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Api Request Test
+  server:
+    port: 8080
+  swagger:
+    enabled: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  
+    
