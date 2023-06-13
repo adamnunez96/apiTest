@@ -24,7 +24,7 @@ O bien, puede usar el [complemento Spring Boot Maven](https://docs.spring.io/spr
 mvn compile spring-boot:run
 ```
 
-Esta api tambien puede ser ejecutada y correr en un contenedor mediante docker, para ello seguir los siguientes pasos:
+Esta api tambien puede ser ejecutada y correr en un contenedor mediante docker (para este paso se da por hecho que tiene instalado docker), para ello seguir los siguientes pasos:
 
 - Primeramente se debe generar el archivo .jar
 
