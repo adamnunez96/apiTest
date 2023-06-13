@@ -1,18 +1,17 @@
-package com.anunez.apiRequest.exception;
+package com.anunez.apirequest.exception;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class NotFoundException extends RuntimeException {
+public class BadRequestException extends RuntimeException {
     private String code;
     private String message;
 
-    public NotFoundException(String code, String message) {
+    public BadRequestException(String code, String message) {
         super(message);
         this.code = code;
         this.message = message;
     }
-    
 }

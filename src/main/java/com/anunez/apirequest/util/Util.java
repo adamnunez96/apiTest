@@ -1,16 +1,21 @@
-package com.anunez.apiRequest.util;
+package com.anunez.apirequest.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.anunez.apiRequest.exception.InternalServerExcepcion;
+import com.anunez.apirequest.exception.InternalServerExcepcion;
 
 
 public class Util {
@@ -65,26 +70,25 @@ public class Util {
         }
     }
 
-    public static String dateFormater(String date){
+    public static String dateFormater(String date) {
 
-        LocalDate localDate = null;
-        DateTimeFormatter outputFormatter = null;
-        DateTimeFormatter inputFormatter = null;
+        String inputFormat = "d 'de' MMMM 'de' yyyy";
+        String outputFormat = "yyyy-MM-dd HH:mm:ss";
+
         try{
-            String inputFormat = "d 'de' MMMM 'de' yyyy";
-            String outputFormat = "yyyy-MM-dd HH:mm:ss";
-    
-            inputFormatter = DateTimeFormatter.ofPattern(inputFormat);
-            outputFormatter = DateTimeFormatter.ofPattern(outputFormat);
-            
-            localDate = LocalDate.parse(date, inputFormatter);
+
+            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern(inputFormat);
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern(outputFormat);
+
+            LocalDate localDate = LocalDate.parse(date, inputFormatter);
+            log.info("localDate {}", localDate);
+            return localDate.atStartOfDay().format(outputFormatter);
 
         }catch(Exception e){
             log.error("Error al formatear fecha: {}", e.getMessage());
             throw new InternalServerExcepcion("g100", INTERNAL_SERVER_ERROR);
-        }
-        
-        return localDate.atStartOfDay().format(outputFormatter);
+        }   
+
     }
 
 }

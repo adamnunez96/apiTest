@@ -1,4 +1,4 @@
-package com.anunez.apiRequest.dto;
+package com.anunez.apirequest.dto;
 
 import lombok.Data;
 

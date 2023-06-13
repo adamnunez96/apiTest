@@ -1,14 +1,14 @@
-package com.anunez.apiRequest.controller;
+package com.anunez.apirequest.controller;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.anunez.apiRequest.dto.NewsDto;
-import com.anunez.apiRequest.service.ApiServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.anunez.apirequest.dto.NewsDto;
+import com.anunez.apirequest.service.ApiServiceImpl;
 
 
 @RestController

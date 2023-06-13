@@ -1,9 +1,15 @@
-package com.anunez.apiRequest.config;
+package com.anunez.apirequest.config;
 
 import java.util.Collections;
+import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;    
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
+
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -21,7 +27,7 @@ public class Config {
     public Docket api (){
         return  new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.anunez.apiRequest.controller"))
+        .apis(RequestHandlerSelectors.basePackage("com.anunez.apirequest.controller"))
         .paths(PathSelectors.any())
         .build()
         .apiInfo(apiInfo());
@@ -35,6 +41,22 @@ public class Config {
                 "Terms of service",
                 new Contact("Adam Nunez", "www.adamnunez.com", "adamaguire96@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
+    }
+
+    @Bean
+    @Primary
+    public LocaleResolver localeResolver() {
+        AcceptHeaderLocaleResolver resolver = new AcceptHeaderLocaleResolver();
+        resolver.setDefaultLocale(new Locale("es", "PY")); // Establece la configuración regional predeterminada
+        return resolver;
+    }
+
+    @Bean
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("messages"); // Nombre base de los archivos de configuración regional, ej. messages.properties
+        source.setDefaultEncoding("UTF-8");
+        return source;
     }
     
 }

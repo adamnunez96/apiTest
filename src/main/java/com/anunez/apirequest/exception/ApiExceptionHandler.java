@@ -1,11 +1,11 @@
-package com.anunez.apiRequest.exception;
+package com.anunez.apirequest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.anunez.apiRequest.dto.ExceptionDto;
+import com.anunez.apirequest.dto.ExceptionDto;
 
 
 @RestControllerAdvice

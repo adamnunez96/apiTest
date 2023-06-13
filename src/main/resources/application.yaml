@@ -7,6 +7,11 @@ spring:
     enabled: true
   mvc:
     pathmatch:
-      matching-strategy: ant_path_matcher
+      matching-strategy: ant-path-matcher
+  messages:
+    basename: messages
+    encoding: UTF-8
+  web:
+    locale: es_PY
   
     

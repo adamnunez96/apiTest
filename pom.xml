@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.anunez</groupId>
-	<artifactId>apiRequest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>apiRequest</name>
+	<artifactId>apirequest</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>apirequest</name>
 	<description>Api News Request</description>
 	<properties>
 		<java.version>17</java.version>

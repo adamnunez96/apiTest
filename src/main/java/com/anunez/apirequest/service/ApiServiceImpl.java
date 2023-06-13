@@ -1,4 +1,4 @@
-package com.anunez.apiRequest.service;
+package com.anunez.apirequest.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,11 +15,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.anunez.apiRequest.dto.NewsDto;
-import com.anunez.apiRequest.exception.BadRequestException;
-import com.anunez.apiRequest.exception.InternalServerExcepcion;
-import com.anunez.apiRequest.exception.NotFoundException;
-import com.anunez.apiRequest.util.Util;
+import com.anunez.apirequest.dto.NewsDto;
+import com.anunez.apirequest.exception.BadRequestException;
+import com.anunez.apirequest.exception.InternalServerExcepcion;
+import com.anunez.apirequest.exception.NotFoundException;
+import com.anunez.apirequest.util.Util;
 
 
 @Service

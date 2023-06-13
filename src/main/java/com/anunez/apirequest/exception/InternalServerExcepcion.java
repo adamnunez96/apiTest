@@ -1,15 +1,15 @@
-package com.anunez.apiRequest.exception;
+package com.anunez.apirequest.exception;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class BadRequestException extends RuntimeException {
+public class InternalServerExcepcion extends RuntimeException {
     private String code;
     private String message;
 
-    public BadRequestException(String code, String message) {
+    public InternalServerExcepcion(String code, String message) {
         super(message);
         this.code = code;
         this.message = message;
