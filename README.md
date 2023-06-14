@@ -10,7 +10,7 @@ Para correr la aplicación necesita:
 - [Maven 3.8.6](https://maven.apache.org)
 - [Docker](https://www.docker.com/) (opcional)
 
-Las primeras dos herramientas tambien pueden ser instaladas localmente solo para su usuario mediante la herramienta sdkman
+Las primeras dos primeras herramientas pueden ser instaladas localmente solo para un usuario mediante la herramienta sdkman
 
 - [sdkman](https://sdkman.io/)
 
@@ -39,7 +39,13 @@ docker build -t apirequest:1.0.0-SNAPSHOT .
 - Por ultimo, levantar el contenedor
 
 ```shell
-docker run -d -e LANG=es_PY.UTF-8 --name apirequest -p 8080:8080 apirequest:1.0.0-SNAPSHOT .
+docker run -d --name apirequest -p 8080:8080 apirequest:1.0.0-SNAPSHOT .
+```
+
+Con esto, nuestro contenedor ya se encuentra corriendo en segundo plano, podemos validar ello con el comando:
+
+```shell
+docker ps
 ```
 
 ## Documentacion

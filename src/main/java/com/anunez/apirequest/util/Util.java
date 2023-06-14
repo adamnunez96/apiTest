@@ -4,14 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,23 +66,74 @@ public class Util {
 
     public static String dateFormater(String date) {
 
-        String inputFormat = "d 'de' MMMM 'de' yyyy";
-        String outputFormat = "yyyy-MM-dd HH:mm:ss";
-
         try{
 
-            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern(inputFormat);
-            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern(outputFormat);
+            String formattedDate = date.replace(" de ", "-");
+            String[] dateSplit = formattedDate.split("-");
 
-            LocalDate localDate = LocalDate.parse(date, inputFormatter);
-            log.info("localDate {}", localDate);
-            return localDate.atStartOfDay().format(outputFormatter);
+            String finalDate = getFinalDate(dateSplit);
+
+            return finalDate;
 
         }catch(Exception e){
             log.error("Error al formatear fecha: {}", e.getMessage());
             throw new InternalServerExcepcion("g100", INTERNAL_SERVER_ERROR);
         }   
+    }
 
+    public static String getFinalDate(String[] date) throws Exception{
+
+        String day = date[0];
+        String month = date[1].toLowerCase();
+        String year = date[2];
+
+        if(day.length() == 1){
+            day = "0" + day;
+        }
+
+        switch(month){
+            case "enero":
+                month = "01";
+                break;
+            case "febrero":
+                month = "02";
+                break;
+            case "marzo":
+                month = "03";
+                break;
+            case "abril":
+                month = "04";
+                break;
+            case "mayo":
+                month = "05";
+                break;
+            case "junio":
+                month = "06";
+                break;
+            case "julio":
+                month = "07";
+                break;
+            case "agosto":
+                month = "08";
+                break;
+            case "setiembre":
+                month = "09";
+                break;
+            case "octubre":
+                month = "10";
+                break;
+            case "noviembre":
+                month = "11";
+                break;
+            case "diciembre":
+                month = "12";
+                break;
+            default:
+                month = "";
+                break;
+        }
+
+        return year + "-" + month + "-" + day + " 00:00:00";
     }
 
 }

@@ -8,10 +8,7 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
-  messages:
-    basename: messages
-    encoding: UTF-8
   web:
-    locale: es_PY
+    locale: en_US
   
     

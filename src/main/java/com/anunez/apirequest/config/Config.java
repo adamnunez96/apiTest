@@ -1,14 +1,9 @@
 package com.anunez.apirequest.config;
 
 import java.util.Collections;
-import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -41,22 +36,6 @@ public class Config {
                 "Terms of service",
                 new Contact("Adam Nunez", "www.adamnunez.com", "adamaguire96@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
-    }
-
-    @Bean
-    @Primary
-    public LocaleResolver localeResolver() {
-        AcceptHeaderLocaleResolver resolver = new AcceptHeaderLocaleResolver();
-        resolver.setDefaultLocale(new Locale("es", "PY")); // Establece la configuración regional predeterminada
-        return resolver;
-    }
-
-    @Bean
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasename("messages"); // Nombre base de los archivos de configuración regional, ej. messages.properties
-        source.setDefaultEncoding("UTF-8");
-        return source;
     }
     
 }
